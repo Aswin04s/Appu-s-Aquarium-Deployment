@@ -36,6 +36,8 @@ function ProductsPage({ addToCart }) {
                             <img
                                 src={product.image}
                                 alt={product.name}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover"
                                 onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=No+Image' }}
                             />

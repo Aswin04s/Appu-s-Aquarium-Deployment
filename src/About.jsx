@@ -57,6 +57,7 @@ function About() {
                         <img
                             src={sliderImages[index].url}
                             alt={sliderImages[index].caption}
+                            loading={index === 0 ? "eager" : "lazy"}
                             className="w-full h-full object-cover transition duration-500 ease-in-out transform hover:scale-105"
                         />
                         <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 text-center">
