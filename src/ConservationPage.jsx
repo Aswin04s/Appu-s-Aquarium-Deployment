@@ -1,75 +1,53 @@
-// ConservationPage.jsx
 import { useNavigate } from 'react-router-dom';
+import consClean from './assets/images/cons_clean.jpg';
+import consCoral from './assets/images/cons_coral.jpg';
 
 function ConservationPage() {
-    const navigate = useNavigate();
-
     return (
-        <div className="max-w-4xl mx-auto px-6 py-16">
-            {/* Header */}
-            <div className="text-center mb-12">
-                <button
-                    onClick={() => navigate(-1)}
-                    className="mb-6 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-semibold transition"
-                >
-                    ← Back to About Us
-                </button>
-                <h1 className="text-4xl font-bold text-green-800 mb-4">Conservation Efforts</h1>
-                <p className="text-xl text-gray-600">Protecting aquatic life for future generations</p>
-            </div>
+        <section className="max-w-7xl mx-auto px-6 py-16">
+            <h2 className="text-4xl font-bold mb-10 text-center text-green-800">Marine Conservation</h2>
 
-            {/* Main Content */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-                <h2 className="text-2xl font-semibold text-green-700 mb-4">Our Conservation Mission</h2>
-                <p className="text-gray-700 mb-6">
-                    At Appu's Aquarium, we believe in the importance of preserving marine ecosystems
-                    and promoting sustainable practices in the aquarium industry.
-                </p>
+            <div className="flex flex-col md:flex-row items-start gap-12">
+                <div className="md:w-1/2">
+                    <img
+                        src={consClean}
+                        alt="Clean Ocean"
+                        className="w-full h-96 object-cover rounded-lg shadow-lg mb-8"
+                    />
+                    <img
+                        src={consCoral}
+                        alt="Coral Reef"
+                        className="w-full h-64 object-cover rounded-lg shadow-lg"
+                    />
+                </div>
 
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="md:w-1/2 space-y-8 text-lg text-gray-700 leading-relaxed">
                     <div>
-                        <h3 className="text-xl font-semibold text-green-600 mb-3">What We Do</h3>
-                        <ul className="space-y-2 text-gray-700">
-                            <li>• Support marine conservation research</li>
-                            <li>• Promote sustainable fish breeding programs</li>
-                            <li>• Educate visitors about ocean conservation</li>
-                            <li>• Reduce plastic waste in our operations</li>
-                            <li>• Partner with local conservation organizations</li>
+                        <h3 className="text-2xl font-bold text-green-700 mb-2">Why Conservation Matters?</h3>
+                        <p>
+                            The ocean covers over 70% of our planet and provides at least 50% of the oxygen we breathe. However, human activities like pollution, overfishing, and climate change are threatening marine ecosystems.
+                        </p>
+                    </div>
+
+                    <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+                        <h3 className="text-xl font-bold text-green-700 mb-4">How You Can Help?</h3>
+                        <ul className="space-y-4 list-disc list-inside">
+                            <li><strong>Reduce Plastic Use:</strong> Use reusable bags and bottles. Plastics are the #1 pollutant in our oceans.</li>
+                            <li><strong>Sustainable Seafood:</strong> Choose seafood that is sustainably sourced to prevent overfishing.</li>
+                            <li><strong>Don't Buy Coral Souvenirs:</strong> Support the protection of coral reefs by not purchasing items made from marine life.</li>
+                            <li><strong>Conserve Water:</strong> Less water use means less wastewater flowing into the ocean.</li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="text-xl font-semibold text-green-600 mb-3">How You Can Help</h3>
-                        <ul className="space-y-2 text-gray-700">
-                            <li>• Choose sustainably sourced aquarium fish</li>
-                            <li>• Reduce single-use plastics</li>
-                            <li>• Support marine conservation charities</li>
-                            <li>• Educate others about ocean protection</li>
-                            <li>• Practice responsible fish keeping</li>
-                        </ul>
+                        <h3 className="text-2xl font-bold text-green-700 mb-2">Our Commitment</h3>
+                        <p>
+                            At Appu's Aquarium, we pledge to educate every visitor about the importance of marine life. A portion of our proceeds goes towards local beach cleanup initiatives in Tamil Nadu.
+                        </p>
                     </div>
                 </div>
             </div>
-
-            {/* Additional Info */}
-            <div className="bg-green-50 rounded-lg p-6 mb-8">
-                <h3 className="text-xl font-semibold text-green-800 mb-3">Quick Facts</h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-                    <div className="bg-white p-3 rounded shadow">
-                        <strong>Coral Reefs</strong>
-                        <p>Home to 25% of marine species</p>
-                    </div>
-                    <div className="bg-white p-3 rounded shadow">
-                        <strong>Plastic Pollution</strong>
-                        <p>8 million tons enter oceans yearly</p>
-                    </div>
-                    <div className="bg-white p-3 rounded shadow">
-                        <strong>Sustainable Practices</strong>
-                        <p>We recycle 90% of our water</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
     );
 }
 

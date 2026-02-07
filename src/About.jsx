@@ -2,69 +2,99 @@
 import './index.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import aboutTank from './assets/images/about_tank.jpg';
+import aboutKids from './assets/images/about_kids.jpg';
+import aboutSharks from './assets/images/about_sharks.jpg';
 
-
-const images = [
-    "https://content.api.news/v3/images/bin/f84846d801bd5a16317923cd5095970b",
-    "https://i.pinimg.com/originals/b5/7d/14/b57d146ee5715d3d2b79d813edd57107.jpg",
-    "https://imgs.mongabay.com/wp-content/uploads/sites/20/2022/04/21154732/4-Aquarium-staff-at-the-New-England-Aquarium.jpg",
+const sliderImages = [
+    {
+        url: aboutTank,
+        caption: "Our Main Tank in Chennai"
+    },
+    {
+        url: aboutKids,
+        caption: "Educating the Next Generation"
+    },
+    {
+        url: aboutSharks,
+        caption: "Exotic Marine Life Collection"
+    }
 ];
 
 function About() {
     const [index, setIndex] = useState(0)
     const navigate = useNavigate();
 
-    const nextSlide = () => setIndex((index + 1) % images.length)
-    const prevSlide = () => setIndex((index - 1 + images.length) % images.length)
+    const nextSlide = () => setIndex((index + 1) % sliderImages.length)
+    const prevSlide = () => setIndex((index - 1 + sliderImages.length) % sliderImages.length)
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-16 container">
-            <h2 className="text-4xl font-bold mb-8 text-center text-green-800">About Us</h2>
-            <div className="flex flex-col md:flex-row items-center gap-12">
+            <h2 className="text-4xl font-bold mb-10 text-center text-green-800">About Appu's Aquarium</h2>
+
+            <div className="flex flex-col lg:flex-row items-center gap-16">
                 {/* Text Content */}
-                <div className="md:w-1/2 text-gray-700 text-lg space-y-6">
+                <div className="lg:w-1/2 text-gray-700 text-lg space-y-6">
                     <p>
-                        At <span className="font-semibold text-green-700">Appu's Aquarium</span>, we are passionate about bringing the wonders of aquatic life closer to you. Our mission is to educate, inspire, and conserve by showcasing diverse marine habitats and species.
+                        Welcome to <span className="font-semibold text-green-700">Appu's Aquarium</span>, the premier destination for aquatic life in <strong>Tamil Nadu, India</strong>. Located in the heart of our vibrant state, we bring the mysteries of the deep ocean right to your doorstep.
                     </p>
                     <p>
-                        Founded in <span className="font-semibold">2019</span>, we have grown from a small hobbyist setup into a vibrant public aquarium dedicated to marine education and conservation. Our dedicated team works tirelessly to create immersive experiences for all ages.
+                        Since opening in <span className="font-semibold">2019</span>, we have been dedicated to showcasing the rich marine biodiversity of the Indian Ocean and beyond. Our facility is not just a showroom but a sanctuary designed to educate our community about the beauty and fragility of underwater ecosystems.
                     </p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Diverse collection of freshwater and saltwater species.</li>
-                        <li>Interactive exhibits and hands-on learning.</li>
-                        <li>Sustainable practices ensuring protection of marine life.</li>
-                    </ul>
-                    <button
-                        onClick={() => navigate('/conservation')}
-                        className="mt-6 px-6 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition font-semibold"
-                    >
-                        Learn More About Conservation
-                    </button>
+                    <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-cyan-500">
+                        <h4 className="font-bold text-xl mb-2">Why Visit Us?</h4>
+                        <ul className="list-disc list-inside space-y-2">
+                            <li>Largest collection of native Indian freshwater species.</li>
+                            <li>Weekly educational workshops for school children.</li>
+                            <li>Ethically sourced marine life and sustainable practices.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                {/* Images */}
-                <div className="md:w-1/2 relative">
-                    <img
-                        src={images[index]}
-                        alt={`Slide ${index + 1}`}
-                        className="w-full h-80 object-cover rounded-lg shadow-lg"
-                    />
+                {/* Simplified Meaningful Slider */}
+                <div className="lg:w-1/2 w-full relative group">
+                    <div className="overflow-hidden rounded-2xl shadow-2xl h-[400px] relative">
+                        <img
+                            src={sliderImages[index].url}
+                            alt={sliderImages[index].caption}
+                            className="w-full h-full object-cover transition duration-500 ease-in-out transform hover:scale-105"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 text-center">
+                            <p className="font-semibold text-lg">{sliderImages[index].caption}</p>
+                        </div>
+                    </div>
 
+                    {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer bg-teal-500 text-white p-2 rounded-full hover:bg-teal-400 transition"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition opacity-0 group-hover:opacity-100"
                         aria-label="Previous Slide"
                     >
-                        &#8592;
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
                     </button>
 
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer bg-teal-500 text-white p-2 rounded-full hover:bg-teal-400 transition"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full backdrop-blur-sm transition opacity-0 group-hover:opacity-100"
                         aria-label="Next Slide"
                     >
-                        &#8594;
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
                     </button>
+
+                    {/* Dots */}
+                    <div className="flex justify-center mt-4 space-x-2">
+                        {sliderImages.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setIndex(i)}
+                                className={`w-3 h-3 rounded-full transition ${i === index ? 'bg-green-600' : 'bg-gray-300'}`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

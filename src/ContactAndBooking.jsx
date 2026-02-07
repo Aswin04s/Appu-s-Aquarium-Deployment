@@ -36,6 +36,8 @@ function ContactAndBooking() {
         { id: 1, title: "Tank Setup", price: 100 },
         { id: 2, title: "Monthly Maintenance", price: 50 },
         { id: 3, title: "Aquarium Cleaning", price: 75 },
+        { id: 4, title: "Health Consultation", price: 50 },
+        { id: 5, title: "Book an Expert", price: 30 },
     ];
 
     return (
@@ -102,8 +104,8 @@ function ContactAndBooking() {
                                 key={service.id}
                                 onClick={() => setSelectedService(service)}
                                 className={`p-4 border-2 rounded cursor-pointer text-center transition ${selectedService?.id === service.id
-                                        ? 'border-green-500 bg-green-50'
-                                        : 'border-gray-200 hover:border-green-300'
+                                    ? 'border-green-500 bg-green-50'
+                                    : 'border-gray-200 hover:border-green-300'
                                     }`}
                             >
                                 <h4 className="font-semibold text-sm mb-2">{service.title}</h4>
@@ -141,8 +143,8 @@ function ContactAndBooking() {
                             type="submit"
                             disabled={!selectedService}
                             className={`w-full py-2 rounded font-semibold transition ${selectedService
-                                    ? 'bg-green-600 hover:bg-green-700 text-white'
-                                    : 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                                ? 'bg-green-600 hover:bg-green-700 text-white'
+                                : 'bg-gray-400 text-gray-200 cursor-not-allowed'
                                 }`}
                         >
                             {selectedService

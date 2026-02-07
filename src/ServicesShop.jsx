@@ -1,64 +1,67 @@
-// ServicesShop.jsx
 import { useNavigate } from 'react-router-dom';
 
 const services = [
-    { id: 1, title: "Tank Setup", description: "Professional aquarium setup tailored to your space." },
-    { id: 2, title: "Maintenance", description: "Regular cleaning and water quality checks to keep your tank healthy." },
-    { id: 3, title: "Aquarium Cleaning", description: "Deep cleaning services for your fish tank and accessories." },
-];
-
-const featuredProducts = [
-    { id: 1, name: "Premium Fish Food", price: "$15", image: "https://tse2.mm.bing.net/th/id/OIP.SYhdiBmcxKKaPHf-EtoZnQHaEI?pid=Api&P=0&h=180" },
-    { id: 2, name: "Aquarium Plants Pack", price: "$25", image: "http://www.snuffleandswim.com/cdn/shop/files/hugs_kisses_15.png?v=1714936323" },
-    { id: 3, name: "LED Aquarium Light", price: "$45", image: "https://images-na.ssl-images-amazon.com/images/I/71CpM8CfwkL._AC_SL1000_.jpg" },
+    {
+        id: 1,
+        title: "Tank Setup",
+        description: "We provide complete aquarium installation services, including tank placement, substrate setup, filtration system installation, and water conditioning. Perfect for beginners and offices.",
+        icon: "🐠"
+    },
+    {
+        id: 2,
+        title: "Maintenance",
+        description: "Regular scheduled maintenance to ensure your aquatic environment remains healthy. Includes water testing, filter cleaning, and algae removal.",
+        icon: "🧼"
+    },
+    {
+        id: 3,
+        title: "Aquarium Cleaning",
+        description: "Deep cleaning services for neglected tanks. We safely remove sludge, clean decorations, and restore clarity to your aquarium water.",
+        icon: "🌊"
+    },
+    {
+        id: 4,
+        title: "Health Consultation",
+        description: "Our experts diagnose fish diseases and water quality issues, offering effective treatment plans to save your aquatic life.",
+        icon: "🩺"
+    }
 ];
 
 function ServicesShop() {
     const navigate = useNavigate();
 
-    const handleViewProducts = () => {
-        navigate('/products');
-    };
-
     return (
         <section className="max-w-7xl mx-auto px-6 py-16">
-            <h2 className="text-4xl font-bold mb-10 text-center text-green-800">Services & Shop</h2>
+            <h2 className="text-4xl font-bold mb-6 text-center text-green-800">Our Services</h2>
+            <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                At Appu's Aquarium, we don't just sell fish; we ensure they thrive. Choose from our professional services below.
+            </p>
 
-            {/* Services */}
-            <div className="mb-16">
-                <h3 className="text-2xl font-semibold mb-6">Our Services</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {services.map(service => (
-                        <div key={service.id} className="p-6 bg-white rounded shadow hover:shadow-lg transition">
-                            <h4 className="text-xl font-semibold mb-2">{service.title}</h4>
-                            <p className="text-gray-600">{service.description}</p>
-                        </div>
-                    ))}
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                {services.map(service => (
+                    <div key={service.id} className="p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-green-500">
+                        <div className="text-4xl mb-4">{service.icon}</div>
+                        <h4 className="text-xl font-bold mb-3 text-gray-800">{service.title}</h4>
+                        <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
+                        <button
+                            onClick={() => navigate('/contact')}
+                            className="text-green-600 font-bold hover:text-green-800 hover:underline"
+                        >
+                            Contact for Service &rarr;
+                        </button>
+                    </div>
+                ))}
             </div>
 
-            {/* Featured Products */}
-            <div>
-                <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-2xl font-semibold">Shop Products</h3>
-                    <button
-                        onClick={handleViewProducts}
-                        className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition transform hover:scale-105"
-                    >
-                        View All Products
-                    </button>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    {featuredProducts.map(product => (
-                        <div key={product.id} className="bg-white rounded shadow hover:shadow-lg transition overflow-hidden">
-                            <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
-                            <div className="p-4">
-                                <h4 className="text-lg font-semibold">{product.name}</h4>
-                                <p className="text-green-700 font-bold mt-2">{product.price}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            <div className="text-center bg-gray-100 p-10 rounded-lg">
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">Looking for Products?</h3>
+                <p className="text-gray-600 mb-6">Explore our wide range of fish, tanks, and accessories.</p>
+                <button
+                    onClick={() => navigate('/products')}
+                    className="bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700 transition"
+                >
+                    Visit Shop
+                </button>
             </div>
         </section>
     );
